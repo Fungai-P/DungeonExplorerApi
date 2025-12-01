@@ -1,0 +1,105 @@
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 1rem;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-row label {
+  min-width: 120px;
+  font-weight: bold;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.error {
+  color: #b00020;
+  margin-top: 10px;
+}
+
+.loading {
+  margin-top: 10px;
+}
+
+.actions {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-id {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.grid-wrapper {
+  margin-top: 20px;
+}
+
+.grid {
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+/* Colors */
+.cell.start {
+  background-color: #4caf50; /* green */
+}
+
+.cell.goal {
+  background-color: #ff9800; /* orange */
+}
+
+.cell.obstacle {
+  background-color: #9e9e9e; /* grey */
+}
+
+.cell.path {
+  background-color: #2196f3; /* blue */
+}
+
+.legend {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.legend .cell {
+  display: inline-block;
+  margin-right: 5px;
+}
