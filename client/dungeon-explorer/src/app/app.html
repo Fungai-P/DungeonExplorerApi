@@ -1,0 +1,71 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <!-- Form -->
+  <form (ngSubmit)="onCreateMap()" class="form">
+    <div class="form-row">
+      <label>Width</label>
+      <input type="number" [(ngModel)]="width" name="width" min="5" max="50" />
+    </div>
+    <div class="form-row">
+      <label>Height</label>
+      <input type="number" [(ngModel)]="height" name="height" min="5" max="50" />
+    </div>
+
+    <div class="form-row">
+      <label>Start (x,y)</label>
+      <input type="number" [(ngModel)]="startX" name="startX" />
+      <input type="number" [(ngModel)]="startY" name="startY" />
+    </div>
+
+    <div class="form-row">
+      <label>Goal (x,y)</label>
+      <input type="number" [(ngModel)]="goalX" name="goalX" />
+      <input type="number" [(ngModel)]="goalY" name="goalY" />
+    </div>
+
+    <div class="form-row">
+      <label>Obstacles (x,y; x,y; ...)</label>
+      <input type="text" [(ngModel)]="obstaclesText" name="obstaclesText" />
+    </div>
+
+    <button type="submit" [disabled]="isLoading">
+      Create Map
+    </button>
+  </form>
+
+  <div class="actions" *ngIf="map">
+    <button (click)="onComputePath()" [disabled]="isLoading">
+      Compute Path
+    </button>
+    <span class="map-id">Map ID: {{ map.id }}</span>
+  </div>
+
+  <div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="loading" *ngIf="isLoading">
+    Loading...
+  </div>
+
+  <!-- Grid -->
+  <div *ngIf="map" class="grid-wrapper">
+    <h2>Dungeon Grid</h2>
+    <div class="grid">
+      <div class="row" *ngFor="let y of rowArray()">
+        <div
+          *ngFor="let x of colArray()"
+          [ngClass]="cellClass(x, y)">
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div><span class="cell start"></span> Start</div>
+      <div><span class="cell goal"></span> Goal</div>
+      <div><span class="cell obstacle"></span> Obstacle</div>
+      <div><span class="cell path"></span> Path</div>
+    </div>
+  </div>
+</div>
