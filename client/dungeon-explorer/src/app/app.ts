@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { DungeonService, MapResponse, PathResponse, Position } from '../services/dungeon.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
